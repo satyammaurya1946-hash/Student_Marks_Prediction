@@ -1,189 +1,88 @@
-#  Student Marks Prediction
+# Student Marks Prediction
 
-A Machine Learning project that predicts a student's exam marks based on their study hours. This project demonstrates the complete machine learning workflow, including data preprocessing, model training, evaluation, and prediction using Python.
-
----
-
-##  Project Overview
-
-The goal of this project is to build a regression model that predicts student marks based on the number of hours they study. It is a beginner-friendly machine learning project that showcases data analysis, visualization, model building, and performance evaluation.
+A simple Machine Learning project that predicts a student's marks based on the number of hours they studied, using Linear Regression.
 
 ---
 
-##  Features
+## Project Overview
 
-- Data preprocessing and cleaning
--  Exploratory Data Analysis (EDA)
--  Linear Regression model
--  Model evaluation using performance metrics
--  Predict marks for new study hours
--  Well-structured and easy-to-understand code
+The goal of this project is to build a regression model that predicts a student's marks from their study hours. The data is read from a CSV file, cleaned (missing values handled), and used to train a scikit-learn Linear Regression model.
 
 ---
 
-## 🛠️ Technologies Used
+## Repository Contents
 
-- Python
-- Jupyter Notebook
-- NumPy
-- Pandas
-- Matplotlib
-- Seaborn
-- Scikit-learn
+| File | Description |
+|---|---|
+| `predict.py` | Loads `student_info.csv`, checks and drops missing values, groups the data by study hours (averaging marks), trains a `LinearRegression` model, and predicts marks for a study-hours value entered by the user. |
+| `Student_marks_predict.ipynb` | Notebook version of the same workflow — loading data, inspecting it (`df.info()`, null checks), cleaning it, training the model, and generating predictions. |
+| `student_info.csv` | Dataset with 200 rows and two columns: `study_hours` and `student_marks` (some rows have missing `study_hours` values). |
 
 ---
 
-##  Project Structure
+## Machine Learning Workflow
 
-```
-Student_Marks_Prediction/
-│
-├── data/
-│   └── student_marks.csv
-│
-├── notebooks/
-│   └── Student_Marks_Prediction.ipynb
-│
-├── models/
-│   └── trained_model.pkl
-│
-├── images/
-│   └── output.png
-│
-├── requirements.txt
-├── README.md
-└── LICENSE
+1. Load the dataset (`student_info.csv`) with pandas
+2. Check for and drop missing values
+3. Group by `study_hours` and average the corresponding `student_marks`
+4. Split into features (`study_hours`) and target (`student_marks`)
+5. Train a `LinearRegression` model on the data
+6. Predict marks for a new study-hours input
+7. Print the model's R² score
+
+---
+
+## Model Used
+
+- **Linear Regression** (`sklearn.linear_model.LinearRegression`)
+
+Suitable for predicting a continuous value (marks) from a single numeric feature (study hours).
+
+---
+
+## Requirements
+
+```bash
+pip install pandas scikit-learn
 ```
 
-> **Note:** The folder structure may vary depending on your project files.
+(Use `jupyter` as well if you want to run the notebook: `pip install jupyter`)
 
 ---
 
-##  Machine Learning Workflow
-
-1. Import required libraries
-2. Load the dataset
-3. Perform data preprocessing
-4. Explore and visualize the data
-5. Split the dataset into training and testing sets
-6. Train the Linear Regression model
-7. Evaluate the model
-8. Predict student marks for new inputs
-
----
-
-##  Model Used
-
-- **Linear Regression**
-
-This algorithm is suitable for predicting continuous values such as student marks based on study hours.
-
----
-
-##  Evaluation Metrics
-
-The model is evaluated using:
-
-- Mean Absolute Error (MAE)
-- Mean Squared Error (MSE)
-- Root Mean Squared Error (RMSE)
-- R² Score
-
----
-
-##  Installation
+## Usage
 
 Clone the repository:
 
 ```bash
 git clone https://github.com/satyammaurya1946-hash/Student_Marks_Prediction.git
-```
-
-Navigate to the project directory:
-
-```bash
 cd Student_Marks_Prediction
 ```
 
-Install the required packages:
+Run the script (it will prompt you to enter study hours):
 
 ```bash
-pip install -r requirements.txt
+python predict.py
 ```
 
-Run the Jupyter Notebook:
+Or explore the workflow step-by-step in the notebook:
 
 ```bash
-jupyter notebook
+jupyter notebook Student_marks_predict.ipynb
 ```
 
 ---
 
-##  Requirements
+## Future Improvements
 
-Install the following Python libraries:
-
-```text
-numpy
-pandas
-matplotlib
-seaborn
-scikit-learn
-jupyter
-```
-
-Or install them using:
-
-```bash
-pip install numpy pandas matplotlib seaborn scikit-learn jupyter
-```
+- Add data visualization (e.g., scatter plot of hours vs. marks)
+- Add proper train/test split and evaluation metrics (MAE, MSE, R²)
+- Save the trained model for reuse
+- Add a `requirements.txt`
 
 ---
 
-## 📷 Sample Output
-
-The model predicts the expected marks based on the number of study hours provided by the user.
-
-Example:
-
-| Study Hours | Predicted Marks |
-|-------------|-----------------|
-| 2.5 | 27.4 |
-| 5.0 | 52.8 |
-| 7.5 | 77.6 |
-| 9.0 | 92.1 |
-
----
-
-##  Future Improvements
-
-- Add multiple input features
-- Hyperparameter tuning
-- Deploy using Streamlit
-- Build a Flask/Django web application
-- Save and load trained models
-- Improve model accuracy using advanced algorithms
-
----
-
-##  Contributing
-
-Contributions are welcome!
-
-1. Fork the repository.
-2. Create a new branch.
-3. Commit your changes.
-4. Push to your branch.
-5. Open a Pull Request.
-
----
-
-##  Author
+## Author
 
 **Satyam Maurya**
-
-- GitHub: https://github.com/satyammaurya1946-hash
-
----
-
-
+GitHub: [@satyammaurya1946-hash](https://github.com/satyammaurya1946-hash)
